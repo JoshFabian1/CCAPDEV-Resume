@@ -513,11 +513,19 @@
               let li = document.createElement('liContent');
               
               let name = document.createElement('span');
+              let position = document.createElement('span');
+              let years = document.createElement('span');
               
               li.setAttribute('data-id', doc.id);
-              name.textContent = doc.data().name;
                 
+              name.textContent = doc.data().name;
+              position.textContent = doc.data().position;
+              years.textContent = doc.data().years;
+                
+              
               li.appendChild(name);
+              li.appendChild(position);
+              li.appendChild(years);
                 
               orgList.appendChild(li);
           }
