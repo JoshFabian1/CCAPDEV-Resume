@@ -1,0 +1,847 @@
+<html>
+	<head>
+        <script src="jquery.js"></script>
+
+
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet"/>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+		
+		<style>
+            html {
+                scroll-behavior: smooth;
+            }
+            
+			body {
+				color: black;
+				background-color: white;
+				margin: 0;
+				padding: 0;
+				font-family: "Open Sans";
+                background-image: url("BG1.jpg");
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+			}
+			
+			
+			body::-webkit-scrollbar {
+				width: 0.25rem;
+			}
+			
+			body::-webkit-scrollbar-track {
+				background: #1e1e24;
+			}
+			
+			body::-webkit-scrollbar-thumb {
+				background: #6649b8;
+			}
+			
+			main {
+				height: 100vh;
+				margin-left: 5rem;
+			}
+			
+			h1.title {
+				margin-top: -100px;
+				letter-spacing: 0.2em;
+				text-align:center;
+				margin: 0;
+				padding-top: 1em;
+				font-size: 70;
+				color: #e6e6e6;
+			}
+            
+            h2.contentTitle {
+                color: #e6e6e6;
+                font-size: 60;
+                padding-top: 0;
+            }
+			
+			main p {
+				color: #e6e6e6;
+				font-size: 30;
+				text-align:center;
+			}
+			
+			#nav-icon {
+				height: 50px;
+				width: 50px;
+				margin-left: auto;
+				margin-right: auto;
+			
+			}
+			
+			.navbarr {
+				width: 5rem;
+				height: 100vh;
+				position: fixed;
+				background-color: #23232e;
+				transition: width 200ms ease;
+
+			}
+			
+			.navbar-navv {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+			
+			.nav-item {
+				width: 100%;
+				transition: 600ms;
+			}
+			
+			.nav-item:hover {
+				filter: grayscale(0%) opacity(1);
+				background: #141418;
+				color: #ececec;
+			}
+			
+			.nav-link {
+				display: flex;
+				align-items: center;
+				height: 5rem;
+				color: #b6b6b6;
+				text-decoration: none;
+				filter: grayscale(100%) opacity(0.7);
+				transition: 600ms;
+				float: left;
+				padding-left: 10px;
+				padding-right: 10px;
+			}
+			
+			.nav-link:hover {
+				filter: grayscale(0%) opacity(1);
+				background: #141418;
+				color: #ececec;
+			}
+			
+			.link-text {
+				display: none;
+				margin-left: 1rem;
+				color: white;
+			}
+			
+			.navbarr:hover {
+				width: 16rem;
+			}
+			
+			.navbarr:hover .link-text {
+				display: block;
+			}
+			
+			.logo {
+				font-weight: bold;
+				text-transform: uppercase;
+				margin-bottom: 1rem;
+				text-align: center;
+				color: #ececec;
+				background: #141418;
+				font-size: 1.5rem;
+				text-transform: uppercase;
+				letter-spacing: 0.3ch;
+				width: 100%;
+			}
+			
+			#headercontainer {
+				height: 100px;
+				width: 50%;
+				margin: 0 auto;
+				//opacity: 0.25;
+				//background-color: #e6e6e6;
+				
+			}
+			
+			.jumbotron {
+				background-color: rgba(0,0,0,0.6);
+				width: 75%;
+				margin: 0 auto;
+                margin-top: 100px;
+				border-top: 3px solid #ccc;
+				border-bottom: 3px solid #ccc;
+			}
+			
+			.testingdiv {
+				width: 50%;
+				margin: 0 auto;
+				text-align: center;
+			}
+            
+            .formDiv {
+				margin: 0 auto;
+				text-align: center;
+			}
+            
+            .titleDiv {
+                width: 50%;
+                height: 100%;
+				margin: 0 auto;
+				text-align: center;
+            }
+
+            @keyframes fadein {
+                from { opacity: 0; }
+                to   { opacity: 1; }
+            }
+            
+            .titleDiv h1 {
+                font-size: 100;
+                -webkit-animation: fadein 2s; 
+                        animation: fadein 2s;
+
+            }
+            
+            .titleDiv p {
+                font-size: 60;
+                font-weight: 60;
+                -webkit-animation: fadein 4s; 
+                        animation: fadein 4s;
+            }
+			
+			h1.display-4 {
+				color: white;
+			}
+            
+            .ulContent{
+                list-style-type: none;
+                padding: 0;
+                display: block;
+            }
+
+            liContent{
+                padding: 20px;
+                font-size: 20px;
+                color: #e6e6e6;
+                position: relative;
+                height: 46px;
+            }
+
+            liContent:nth-child(even){
+                padding: 20px;
+                
+            }
+
+            liContent span{
+                display: block;
+            }
+            
+            liContent a{
+                display: block;
+            }
+            
+            liContent span:nth-child(1){
+                font-size: 30;
+                margin-top: 6px;
+                color: #e6e6e6;
+            }
+            
+            hr {
+                border: 1px solid white;
+                width: 100%;
+            }
+            
+            div.loginDiv{
+                position:fixed;
+                top:0;
+                left:0;
+                background-color: #23232e;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                display: grid;
+                align-items: center;
+                background-image: url("BG1.jpg");
+                
+            }
+            
+            div.pinkDiv {
+                background-color: pink;
+            }
+            
+            form {
+                align-content: center
+            }
+            
+            .button {
+              background-color: #6649b8;
+              border: none;
+              color: white;
+              padding: 5px 32px;
+              text-align: center;
+              text-decoration: none;
+              display: inline-block;
+              font-size: 16px;
+            }
+            
+            .button:hover {background-color: #937ecd}
+            
+            input[type=text] {
+              margin: 8px 0;
+              box-sizing: border-box;
+              border: 2px solid #6649b8;
+              border-radius: 4px;
+            }
+
+			
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		</style>
+
+
+		<!-- The core Firebase JS SDK is always required and must be listed first -->
+		<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+
+
+		<!-- TODO: Add SDKs for Firebase products that you want to use
+			https://firebase.google.com/docs/web/setup#available-libraries -->
+		<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+
+		<script>
+
+		  // Your web app's Firebase configuration
+		  var firebaseConfig = {
+			apiKey: "AIzaSyBJyoUfP6HH-JEriCaVhKQ7iOEa9BWGH_Y",
+			authDomain: "ccapdev-resume-fce4e.firebaseapp.com",
+			databaseURL: "https://ccapdev-resume-fce4e.firebaseio.com",
+			projectId: "ccapdev-resume-fce4e",
+			storageBucket: "ccapdev-resume-fce4e.appspot.com",
+			messagingSenderId: "192193838072",
+			appId: "1:192193838072:web:9e20a25cf11cce29cf740d"
+		  };
+		  
+		  // Initialize Firebase
+		  var defaultProject = firebase.initializeApp(firebaseConfig);
+		  
+		  var db = firebase.firestore()
+
+//		  db.collection("educations").get().then((snapshot) => {
+//              snapshot.docs.forEach(doc => {
+//                  renderEduc(doc);
+//              })
+//          })
+            
+            db.collection('educations').orderBy('school').onSnapshot(snapshot => {
+                    let changes = snapshot.docChanges();
+                    changes.forEach(change => {
+                        if(change.type == 'added'){
+                            renderEduc(change.doc);
+                        } else if (change.type == 'removed') {
+                            let li = educList.querySelector('[data-id=' + change.doc.id + ']');
+                            educList.removeChild(li);
+                        }
+                        
+                    })
+                })
+            
+            db.collection('organizations').orderBy('name').onSnapshot(snapshot => {
+                    let changes = snapshot.docChanges();
+                    changes.forEach(change => {
+                        if(change.type == 'added'){
+                            renderOrg(change.doc);
+                        } else if (change.type == 'removed') {
+                            let li = orgList.querySelector('[data-id=' + change.doc.id + ']');
+                            orgList.removeChild(li);
+                        }
+                        
+                    })
+                })
+            
+            db.collection('works').orderBy('name').onSnapshot(snapshot => {
+                    let changes = snapshot.docChanges();
+                    changes.forEach(change => {
+                        if(change.type == 'added'){
+                            renderWorks(change.doc);
+                        } else if (change.type == 'removed') {
+                            let li = projectList.querySelector('[data-id=' + change.doc.id + ']');
+                            projectList.removeChild(li);
+                        }
+                        
+                    })
+                })
+            
+            db.collection('others').orderBy('aboutMeDesc').onSnapshot(snapshot => {
+                    let changes = snapshot.docChanges();
+                    changes.forEach(change => {
+                        if(change.type == 'added'){
+                            renderMe(change.doc);
+                        } else if (change.type == 'removed') {
+                            let li = meList.querySelector('[data-id=' + change.doc.id + ']');
+                            meList.removeChild(li);
+                        } else if (change.type == 'modified') {
+                            let li = meList.querySelector('[data-id=' + change.doc.id + ']');
+                            meList.removeChild(li);
+                            renderMe(change.doc);
+                        }
+                        
+                    })
+                })
+            
+//          db.collection("works").get().then((snapshot) => {
+//              snapshot.docs.forEach(doc => {
+//                  renderWorks(doc);
+//              })
+//          })
+//            
+//          db.collection("others").get().then((snapshot) => {
+//              snapshot.docs.forEach(doc => {
+//                  renderMe(doc);
+//              })
+//          })
+//            
+//          db.collection("organizations").get().then((snapshot) => {
+//              snapshot.docs.forEach(doc => {
+//                  renderOrg(doc);
+//              })
+//          })
+
+
+		  var newObject = {
+			name: "IEEE",
+			position: "Member",
+			year_start: 2014,
+			year_end: 2020
+		  }
+		  
+		  // ADD ORGANIZATIONS //
+//		  db.collection("organizations").add(newObject).then(function(doc){
+//			console.log("Item added with the uid: " + doc.id);
+//		  })
+		  
+		  // REMOVE ORGANIZATIONS //
+//		  db.collection("organizations").doc("n3H0vrkdiRTM9zheyORz").delete().then(function(){
+//			console.log("Item deleted");
+//		
+//		  }).catch(function(err){
+//			console.log("error in deleting item: " + err);
+//		  });
+		  
+          
+			var email = "courtney.ngo@dlsu.edu.ph";
+			var password = "abcd1234";
+			
+			firebase.auth().signInWithEmailAndPassword(email, password).then(function(user){
+				console.log("user signed in");
+
+				
+				var user = firebase.auth().currentUser;
+				if (user!=null){
+					console.log(user.email);
+				}
+			}).catch(function(err){
+				if(err.code == "auth/wrong-password"){
+					alert("wrong password")
+				} else {
+					alert(err.message);
+				}
+			});
+            
+
+
+		</script>
+	</head>
+	<body>
+        
+        
+		
+			<nav class="navbarr">
+				<ul class="navbar-navv">
+					
+					<li class="logo">
+						<a href="." class="nav-link" onclick='location.reload(true); return false;'>
+							<span class ="link-text logo-text">My Resume</span> 
+						</a>
+					</li>
+					
+					<li class="nav-item">
+						<a href="#titleDiv" class = "nav-link">
+							<img src = "home.png" id = "nav-icon"> </img>
+							<span class ="link-text">Home</span>
+						</a>
+					</li>
+        
+                    <li class="nav-item">
+						<a href="#educationDiv" class = "nav-link">
+							<img src = "book.png" id="nav-icon"> </img>
+							<span class ="link-text">Education</span>
+						</a>
+					</li>
+
+                    <li class="nav-item">
+						<a href="#orgDiv" class = "nav-link">
+							<img src = "group.png" id="nav-icon"> </img>
+							<span class ="link-text">Organizations</span>
+						</a>
+					</li>
+
+				    <li class="nav-item">
+						<a href="#projectDiv" class = "nav-link">
+							<img src = "sketch.png" id="nav-icon"> </img>
+							<span class ="link-text">Projects</span>
+						</a>
+					</li>
+
+					<li class="nav-item">
+						<a href="#meDiv" class = "nav-link">
+							<img src = "user.png" id="nav-icon"> </img>
+							<span class ="link-text">About Me</span>
+						</a>
+					</li>
+
+					<li class="nav-item">
+						<a href="index.html" class = "nav-link">
+							<img src = "key.png" id="nav-icon"> </img>
+							<span class ="link-text">Logout</span>
+						</a>
+					</li>
+					
+
+					
+				</ul>
+			</nav>
+
+		
+		<main>      
+            
+			<div class="titleDiv" id="titleDiv">
+                <br><br><br><br><br><br><br><br><br><br>
+                <h1 class="title"> Josh Fabian </h1>
+			    <p> An online resume </p>
+                <br><br><br><br><br><br><br><br><br><br>
+
+            </div>
+
+
+
+			<div class="jumbotron" id="educationDiv">
+                <div class="formDiv">
+                    <form id="addEduc">
+                        <input type="text" name="name" placeholder="School Name">
+                        <input type="text" name="degree" placeholder="Degree">
+                        <input type="text" name="years" placeholder="Years of Stay">
+                        <button class="button">Add School</button>
+                    </form>
+                </div>
+				<div class ="testingdiv">
+					<h2 class="contentTitle"> Educational History </h2>
+                    <hr class="hr1">
+                    <ul class="ulContent" id="educList"></ul>
+				</div>
+			</div>
+            
+            <div class="jumbotron" id="orgDiv">
+                <div class="formDiv">
+                    <form id="addOrg">
+                        <input type="text" name="name" placeholder="Organization Name">
+                        <input type="text" name="position" placeholder="Position">
+                        <input type="text" name="years" placeholder="Years of Stay">
+                        <button class="button">Add Organization</button>
+                    </form>
+                </div>
+                <div class ="testingdiv">
+					<h2 class="contentTitle"> Organizations </h2>
+                    <hr class="hr1">
+                    <ul class="ulContent" id="orgList"></ul>
+                </div>
+            </div>
+            
+             <div class="jumbotron" id="projectDiv">
+                <div class="formDiv">
+                    <form id="addWork">
+                        <input type="text" name="name" placeholder="Project Name">
+                        <input type="text" name="description" placeholder="Description">
+                        <button class="button">Add Work</button>
+                    </form>
+                </div>
+                <div class ="testingdiv">
+					<h2 class="contentTitle"> Projects </h2>
+                    <hr class="hr1">
+                    <ul class="ulContent" id="projectList"></ul>
+                    
+                </div>
+            </div>
+            
+            
+            <div class="jumbotron" id="meDiv">
+                <div class="formDiv">
+                    <form id="editMe">
+                        <input type="text" name="description" placeholder="New Description">
+                        <button class="button">Edit Description</button>
+                    </form>
+                </div>
+                <div class="formDiv">
+                    <form id="editGH">
+                        <input type="text" name="github" placeholder="New Github Link">
+                        <button class="button">Edit Github</button>
+                    </form>
+                </div>
+                <div class="formDiv">
+                    <form id="editLI">
+                        <input type="text" name="linkedin" placeholder="New LinkedIn Link">
+                        <button class="button">Edit LinkedIn</button>
+                    </form>
+                </div>
+                <div class="formDiv">
+                    <form id="editTWT">
+                        <input type="text" name="twitter" placeholder="New Twitter Link">
+                        <button class="button">Edit Twitter</button>
+                    </form>
+                </div>
+                <div class ="testingdiv">
+					<h2 class="contentTitle"> About Me </h2>
+                    <hr class="hr1">
+                    <ul class="ulContent" id="meList"></ul>
+                    <iframe src="https://open.spotify.com/embed/artist/4l38P8HcuvSPxHHNdavXOg" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                </div>
+            </div>
+            
+            <div class="loginDiv">
+                <form id="login">
+                    <h2 class="contentTitle">Login</h2>
+                    <input type="email" id="email" placeholder="Email"> 
+                    <input type="password" id="password" placeholder="Password"> 
+                    <input type="submit" value="Login" class="button"> 
+                </form>
+            </div>
+			
+		</main>
+        <script>
+
+            var educList = document.querySelector('#educList');
+            function renderEduc(doc){
+              let li = document.createElement('liContent');
+              let x = document.createElement('button');
+              
+              let school = document.createElement('span');
+              let degree = document.createElement('span');
+              let yearStart = document.createElement('span');
+              
+              li.setAttribute('data-id', doc.id);
+              school.textContent = doc.data().school;
+              degree.textContent = doc.data().degree;
+              yearStart.textContent = doc.data().year_start;
+                
+              x.textContent = 'Remove';
+              x.setAttribute('class', 'button');
+              
+              li.appendChild(school);
+              li.appendChild(degree);
+              li.appendChild(yearStart);
+              li.appendChild(x);
+              
+              educList.appendChild(li);
+                
+              x.addEventListener('click', (e) => {
+                  e.stopPropagation();
+                  let id = e.target.parentElement.getAttribute('data-id');
+                  db.collection('educations').doc(id).delete();
+                  alert("Entry removed")
+              })
+          }
+            
+            var projectList = document.querySelector('#projectList');
+            function renderWorks(doc){
+              let li = document.createElement('liContent');
+              
+              let name = document.createElement('span');
+              let description = document.createElement('span');
+              
+              li.setAttribute('data-id', doc.id);
+              name.textContent = doc.data().name;
+              description.textContent = doc.data().description;
+              
+              li.appendChild(name);
+              li.appendChild(description);
+              
+              projectList.appendChild(li);
+                
+              let x = document.createElement('button');
+              x.textContent = 'Remove';
+              x.setAttribute('class', 'button');
+              li.appendChild(x);
+              x.addEventListener('click', (e) => {
+                  e.stopPropagation();
+                  let id = e.target.parentElement.getAttribute('data-id');
+                  db.collection('works').doc(id).delete();
+                  alert("Entry removed")
+              })
+          }
+            
+            var orgList = document.querySelector('#orgList');
+            function renderOrg(doc){
+              let li = document.createElement('liContent');
+              
+              let name = document.createElement('span');
+              let position = document.createElement('span');
+              let years = document.createElement('span');
+              
+              li.setAttribute('data-id', doc.id);
+              name.textContent = doc.data().name;
+              position.textContent = doc.data().position;
+              years.textContent = doc.data().years;
+                
+              li.appendChild(name);
+              li.appendChild(position);
+              li.appendChild(years);
+                
+              orgList.appendChild(li);
+                
+              let x = document.createElement('button');
+              x.textContent = 'Remove';
+              x.setAttribute('class', 'button');
+              li.appendChild(x);
+              x.addEventListener('click', (e) => {
+                  e.stopPropagation();
+                  let id = e.target.parentElement.getAttribute('data-id');
+                  db.collection('organizations').doc(id).delete();
+                  alert("Entry removed")
+              })
+          }
+            
+            var meList = document.querySelector('#meList');
+            function renderMe(doc){
+              let li = document.createElement('liContent');
+                
+              let aboutMeDesc = document.createElement('span');
+              let github = document.createElement('a');
+              let linkedin = document.createElement('a');
+              let twitter = document.createElement('a');
+              
+              li.setAttribute('data-id', doc.id);
+              aboutMeDesc.textContent = doc.data().aboutMeDesc;
+              github.textContent = "Github";
+              linkedin.textContent = "LinkedIn";
+              twitter.textContent = "Twitter";
+              
+              li.appendChild(aboutMeDesc);
+              li.appendChild(github);
+              li.appendChild(linkedin);
+                
+              github.href = doc.data().github;
+              linkedin.href = doc.data().linkedin;
+              twitter.href = doc.data().twitter;
+            
+              li.appendChild(github);
+              li.appendChild(linkedin);
+              li.appendChild(twitter);
+              
+                
+              
+              meList.appendChild(li);
+          }
+            
+            $("form#login").submit(function(e){
+                e.preventDefault();
+                
+                console.log("signing in");
+                
+                var email = $("input#email").val();
+                var password = $("input#password").val();
+                
+                
+                firebase.auth().signInWithEmailAndPassword(email, password).then(function(result){
+                    $("div.loginDiv").hide();
+    
+                }).catch(function(error) {
+                  alert("Invalid email or password.");
+                  var errorCode = error.code;
+                  var errorMessage = error.message;
+                  console.log(errorCode + ": "+ errorMessage);
+                });
+             
+            });
+            
+            const form = document.querySelector('#addEduc');            
+            form.addEventListener('submit', (e)=> {
+                e.preventDefault();
+
+                db.collection('educations').add({
+                    school: form.name.value,
+                    degree: form.degree.value,
+                    year_start: form.years.value
+            })
+                alert("Added Successfuly");
+                    form.name.value = '';
+                    form.degree.value = '';
+                    form.years.value = '';
+                })
+            
+            const orgForm = document.querySelector('#addOrg');            
+            orgForm.addEventListener('submit', (e)=> {
+                e.preventDefault();
+
+                db.collection('organizations').add({
+                    name: orgForm.name.value,
+                    position: orgForm.position.value,
+                    years: orgForm.years.value
+            })
+                alert("Added Successfuly");
+                    orgForm.name.value = '';
+                    orgForm.position.value = '';
+                    orgForm.years.value = '';
+
+                })
+            
+            const workForm = document.querySelector('#addWork');            
+            workForm.addEventListener('submit', (e)=> {
+                e.preventDefault();
+
+                db.collection('works').add({
+                    name: workForm.name.value,
+                    description: workForm.description.value,
+            })
+                alert("Added Successfuly");
+                    workForm.name.value = '';
+                    workForm.description.value = '';
+                })
+            
+            const editMe = document.querySelector('#editMe');            
+            editMe.addEventListener('submit', (e)=> {
+                e.preventDefault();
+
+                db.collection('others').doc('XccrxymriyMBlEF64q8V').update({
+                    aboutMeDesc: editMe.description.value,
+            })
+                alert("Edited Successfuly");
+                    editMe.description.value = '';
+                })
+                        
+            const editGH = document.querySelector('#editGH');            
+            editGH.addEventListener('submit', (e)=> {
+                e.preventDefault();
+
+                db.collection('others').doc('XccrxymriyMBlEF64q8V').update({
+                    github: editGH.github.value,
+            })
+                alert("Edited Successfuly");
+                    editGH.github.value = '';
+                })
+                        
+            const editLI = document.querySelector('#editLI');            
+            editLI.addEventListener('submit', (e)=> {
+                e.preventDefault();
+
+                db.collection('others').doc('XccrxymriyMBlEF64q8V').update({
+                    linkedin: editLI.linkedin.value,
+            })
+                alert("Edited Successfuly");
+                    editLI.linkedin.value = '';
+                })
+                        
+            const editTWT = document.querySelector('#editTWT');            
+            editTWT.addEventListener('submit', (e)=> {
+                e.preventDefault();
+
+                db.collection('others').doc('XccrxymriyMBlEF64q8V').update({
+                    twitter: editTWT.twitter.value,
+            })
+                alert("Edited Successfuly");
+                    editTWT.twitter.value = '';
+                })
+
+        </script>
+			
+		  
+	</body>
+</html>

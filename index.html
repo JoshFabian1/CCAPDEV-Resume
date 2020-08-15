@@ -1,0 +1,561 @@
+<html>
+	<head>
+        <script src="jquery.js"></script>
+
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet"/>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+		
+		<style>
+            html {
+                scroll-behavior: smooth;
+            }
+            
+			body {
+				color: black;
+				background-color: white;
+				margin: 0;
+				padding: 0;
+				font-family: "Open Sans";
+                background-image: url("BG1.jpg");
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+			}
+			
+			
+			body::-webkit-scrollbar {
+				width: 0.25rem;
+			}
+			
+			body::-webkit-scrollbar-track {
+				background: #1e1e24;
+			}
+			
+			body::-webkit-scrollbar-thumb {
+				background: #6649b8;
+			}
+			
+			main {
+				height: 100vh;
+				margin-left: 5rem;
+			}
+			
+			h1.title {
+				margin-top: -100px;
+				letter-spacing: 0.2em;
+				text-align:center;
+				margin: 0;
+				padding-top: 1em;
+				font-size: 70;
+				color: #e6e6e6;
+			}
+            
+            h2.contentTitle {
+                color: #e6e6e6;
+                font-size: 60;
+                padding-top: 0;
+            }
+			
+			main p {
+				color: #e6e6e6;
+				font-size: 30;
+				text-align:center;
+			}
+			
+			#nav-icon {
+				height: 50px;
+				width: 50px;
+				margin-left: auto;
+				margin-right: auto;
+			
+			}
+			
+			.navbarr {
+				width: 5rem;
+				height: 100vh;
+				position: fixed;
+				background-color: #23232e;
+				transition: width 200ms ease;
+
+			}
+			
+			.navbar-navv {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+			
+			.nav-item {
+				width: 100%;
+				transition: 600ms;
+			}
+			
+			.nav-item:hover {
+				filter: grayscale(0%) opacity(1);
+				background: #141418;
+				color: #ececec;
+			}
+			
+			.nav-link {
+				display: flex;
+				align-items: center;
+				height: 5rem;
+				color: #b6b6b6;
+				text-decoration: none;
+				filter: grayscale(100%) opacity(0.7);
+				transition: 600ms;
+				float: left;
+				padding-left: 10px;
+				padding-right: 10px;
+			}
+			
+			.nav-link:hover {
+				filter: grayscale(0%) opacity(1);
+				background: #141418;
+				color: #ececec;
+			}
+			
+			.link-text {
+				display: none;
+				margin-left: 1rem;
+				color: white;
+			}
+			
+			.navbarr:hover {
+				width: 16rem;
+			}
+			
+			.navbarr:hover .link-text {
+				display: block;
+			}
+			
+			.logo {
+				font-weight: bold;
+				text-transform: uppercase;
+				margin-bottom: 1rem;
+				text-align: center;
+				color: #ececec;
+				background: #141418;
+				font-size: 1.5rem;
+				text-transform: uppercase;
+				letter-spacing: 0.3ch;
+				width: 100%;
+			}
+			
+			#headercontainer {
+				height: 100px;
+				width: 50%;
+				margin: 0 auto;
+				//opacity: 0.25;
+				//background-color: #e6e6e6;
+				
+			}
+			
+			.jumbotron {
+				background-color: rgba(0,0,0,0.6);
+				width: 75%;
+				margin: 0 auto;
+                margin-top: 100px;
+				border-top: 3px solid #ccc;
+				border-bottom: 3px solid #ccc;
+			}
+			
+			.testingdiv {
+				width: 50%;
+				margin: 0 auto;
+				text-align: center;
+			}
+            
+            .titleDiv {
+                width: 50%;
+                height: 100%;
+				margin: 0 auto;
+				text-align: center;
+            }
+
+            @keyframes fadein {
+                from { opacity: 0; }
+                to   { opacity: 1; }
+            }
+            
+            .titleDiv h1 {
+                font-size: 100;
+                -webkit-animation: fadein 2s; 
+                        animation: fadein 2s;
+
+            }
+            
+            .titleDiv p {
+                font-size: 60;
+                font-weight: 60;
+                -webkit-animation: fadein 4s; 
+                        animation: fadein 4s;
+            }
+			
+			h1.display-4 {
+				color: white;
+			}
+            
+            .ulContent{
+                list-style-type: none;
+                padding: 0;
+                display: block;
+            }
+
+            liContent{
+                padding: 20px;
+                font-size: 20px;
+                color: #e6e6e6;
+                position: relative;
+                height: 46px;
+            }
+
+            liContent:nth-child(even){
+                padding: 20px;
+                
+            }
+
+            liContent span{
+                display: block;
+            }
+            
+            liContent a{
+                display: block;
+            }
+
+            liContent span:nth-child(1){
+                font-size: 30;
+                margin-top: 6px;
+                color: #e6e6e6;
+            }
+            
+            hr {
+                border: 1px solid white;
+                width: 100%;
+            }
+            
+            div.loginDiv{
+                position:fixed;
+                top:0;
+                left:0;
+                background-color: #23232e;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                display: grid;
+                align-items: center;
+                display: none;
+            }
+
+			
+			
+		</style>
+
+
+		<!-- The core Firebase JS SDK is always required and must be listed first -->
+		<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+
+
+		<!-- TODO: Add SDKs for Firebase products that you want to use
+			https://firebase.google.com/docs/web/setup#available-libraries -->
+		<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+
+		<script>
+		  // Your web app's Firebase configuration
+		  var firebaseConfig = {
+			apiKey: "AIzaSyBJyoUfP6HH-JEriCaVhKQ7iOEa9BWGH_Y",
+			authDomain: "ccapdev-resume-fce4e.firebaseapp.com",
+			databaseURL: "https://ccapdev-resume-fce4e.firebaseio.com",
+			projectId: "ccapdev-resume-fce4e",
+			storageBucket: "ccapdev-resume-fce4e.appspot.com",
+			messagingSenderId: "192193838072",
+			appId: "1:192193838072:web:9e20a25cf11cce29cf740d"
+		  };
+		  
+		  // Initialize Firebase
+		  var defaultProject = firebase.initializeApp(firebaseConfig);
+		  
+		  var db = firebase.firestore()
+		  
+          
+          
+          
+          
+          
+		  db.collection("educations").get().then((snapshot) => {
+              snapshot.docs.forEach(doc => {
+                  renderEduc(doc);
+              })
+          })
+            
+          db.collection("works").get().then((snapshot) => {
+              snapshot.docs.forEach(doc => {
+                  renderWorks(doc);
+              })
+          })
+            
+          db.collection("others").get().then((snapshot) => {
+              snapshot.docs.forEach(doc => {
+                  renderMe(doc);
+              })
+          })
+            
+          db.collection("organizations").get().then((snapshot) => {
+              snapshot.docs.forEach(doc => {
+                  renderOrg(doc);
+              })
+          })
+
+
+		  var newObject = {
+			name: "IEEE",
+			position: "Member",
+			year_start: 2014,
+			year_end: 2020
+		  }
+		  
+		  // ADD ORGANIZATIONS //
+//		  db.collection("organizations").add(newObject).then(function(doc){
+//			console.log("Item added with the uid: " + doc.id);
+//		  })
+		  
+		  // REMOVE ORGANIZATIONS //
+//		  db.collection("organizations").doc("n3H0vrkdiRTM9zheyORz").delete().then(function(){
+//			console.log("Item deleted");
+//		
+//		  }).catch(function(err){
+//			console.log("error in deleting item: " + err);
+//		  });
+		  
+          
+			var email = "courtney.ngo@dlsu.edu.ph";
+			var password = "abcd1234";
+            var isAuthorized = 0;
+			
+			firebase.auth().signInWithEmailAndPassword(email, password).then(function(user){
+				console.log("user signed in");
+                isAuthorized = 1;
+                console.log(isAuthorized);
+				
+				var user = firebase.auth().currentUser;
+				if (user!=null){
+					console.log(user.email);
+				}
+			}).catch(function(err){
+				if(err.code == "auth/wrong-password"){
+					alert("wrong password")
+				} else {
+					alert(err.message);
+				}
+			});
+
+		</script>
+	</head>
+	<body>
+        
+        
+		
+			<nav class="navbarr">
+				<ul class="navbar-navv">
+					
+					<li class="logo">
+						<a href="." class="nav-link" onclick='location.reload(true); return false;'>
+							<span class ="link-text logo-text">My Resume</span> 
+						</a>
+					</li>
+					
+					<li class="nav-item">
+						<a href="#titleDiv" class = "nav-link">
+							<img src = "home.png" id = "nav-icon"> </img>
+							<span class ="link-text">Home</span>
+						</a>
+					</li>
+        
+                    <li class="nav-item">
+						<a href="#educationDiv" class = "nav-link">
+							<img src = "book.png" id="nav-icon"> </img>
+							<span class ="link-text">Education</span>
+						</a>
+					</li>
+
+                    <li class="nav-item">
+						<a href="#orgDiv" class = "nav-link">
+							<img src = "group.png" id="nav-icon"> </img>
+							<span class ="link-text">Organizations</span>
+						</a>
+					</li>
+
+				    <li class="nav-item">
+						<a href="#projectDiv" class = "nav-link">
+							<img src = "sketch.png" id="nav-icon"> </img>
+							<span class ="link-text">Projects</span>
+						</a>
+					</li>
+
+					<li class="nav-item">
+						<a href="#meDiv" class = "nav-link">
+							<img src = "user.png" id="nav-icon"> </img>
+							<span class ="link-text">About Me</span>
+						</a>
+					</li>
+
+					<li class="nav-item">
+						<a href="edit.html" class = "nav-link">
+							<img src = "key.png" id="nav-icon"> </img>
+							<span class ="link-text">Login</span>
+						</a>
+					</li>
+					
+
+					
+				</ul>
+			</nav>
+
+		
+		<main>      
+            
+			<div class="titleDiv" id="titleDiv">
+                <br><br><br><br><br><br><br><br><br><br>
+                <h1 class="title"> Josh Fabian </h1>
+			    <p> An online resume </p>
+                <br><br><br><br><br><br><br><br><br><br>
+
+            </div>
+
+
+			
+			<div class="jumbotron" id="educationDiv">
+				<div class ="testingdiv">
+					<h2 class="contentTitle"> Educational History </h2>
+                    <hr class="hr1">
+                    <ul class="ulContent" id="educList"></ul>
+				</div>
+			</div>
+            
+            <div class="jumbotron" id="orgDiv">
+                <div class ="testingdiv">
+					<h2 class="contentTitle"> Organizations </h2>
+                    <hr class="hr1">
+                    <ul class="ulContent" id="orgList"></ul>
+                </div>
+            </div>
+            
+             <div class="jumbotron" id="projectDiv">
+                <div class ="testingdiv">
+					<h2 class="contentTitle"> Projects </h2>
+                    <hr class="hr1">
+                    <ul class="ulContent" id="projectList"></ul>
+                </div>
+            </div>
+            
+            <div class="jumbotron" id="meDiv">
+                <div class ="testingdiv">
+					<h2 class="contentTitle"> About Me </h2>
+                    <hr class="hr1">
+                    <ul class="ulContent" id="meList"></ul>
+                    <iframe src="https://open.spotify.com/embed/artist/4l38P8HcuvSPxHHNdavXOg" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                </div>
+            </div>
+            
+            <div class="loginDiv">
+                <form id="login">
+                    <h2>Login</h2>
+                    <input type="email" id="email" placeholder="email"> 
+                    <input type="password" id="password" placeholder="password"> 
+                    <input type="submit" value="login" > 
+                </form>
+            </div>
+			
+		</main>
+        <script>
+            var educList = document.querySelector('#educList');
+            function renderEduc(doc){
+              let li = document.createElement('liContent');
+              
+              let school = document.createElement('span');
+              let degree = document.createElement('span');
+              let yearStart = document.createElement('span');
+              
+              li.setAttribute('data-id', doc.id);
+              school.textContent = doc.data().school;
+              degree.textContent = doc.data().degree;
+              yearStart.textContent = doc.data().year_start;
+              
+              li.appendChild(school);
+              li.appendChild(degree);
+              li.appendChild(yearStart);
+              
+              educList.appendChild(li);
+          }
+            
+            var projectList = document.querySelector('#projectList');
+            function renderWorks(doc){
+              let li = document.createElement('liContent');
+              
+              let name = document.createElement('span');
+              let description = document.createElement('span');
+              
+              li.setAttribute('data-id', doc.id);
+              name.textContent = doc.data().name;
+              description.textContent = doc.data().description;
+              
+              li.appendChild(name);
+              li.appendChild(description);
+              
+              projectList.appendChild(li);
+          }
+            
+            var orgList = document.querySelector('#orgList');
+            function renderOrg(doc){
+              let li = document.createElement('liContent');
+              
+              let name = document.createElement('span');
+              
+              li.setAttribute('data-id', doc.id);
+              name.textContent = doc.data().name;
+                
+              li.appendChild(name);
+                
+              orgList.appendChild(li);
+          }
+            
+            var meList = document.querySelector('#meList');
+            function renderMe(doc){
+              let li = document.createElement('liContent');
+                
+              let aboutMeDesc = document.createElement('span');
+              let github = document.createElement('a');
+              let linkedin = document.createElement('a');
+              let twitter = document.createElement('a');
+              
+              li.setAttribute('data-id', doc.id);
+              aboutMeDesc.textContent = doc.data().aboutMeDesc;
+              github.textContent = "Github";
+              linkedin.textContent = "LinkedIn";
+              twitter.textContent = "Twitter";
+              
+              li.appendChild(aboutMeDesc);
+              li.appendChild(github);
+              li.appendChild(linkedin);
+                
+              github.href = doc.data().github;
+              linkedin.href = doc.data().linkedin;
+              twitter.href = doc.data().twitter;
+            
+              li.appendChild(github);
+              li.appendChild(linkedin);
+              li.appendChild(twitter);
+              
+                
+              
+              meList.appendChild(li);
+          }
+
+        </script>
+			
+		  
+	</body>
+</html>
